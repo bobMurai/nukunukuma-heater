@@ -4,6 +4,9 @@ async function main() {
   const tempDisplay = document.querySelector("#temp");
   const bendDisplay = document.querySelector("#bend");
   const huggedDisplay = document.querySelector("#hugged");
+  //村井追記
+  const callTrigger = document.getElementById('js-call-trigger');
+  // const closeTrigger = document.getElementById('js-close-trigger');
 
   const gpioAccess = await navigator.requestGPIOAccess();
   const buttonPort = gpioAccess.ports.get(5);
@@ -39,6 +42,9 @@ async function main() {
     
     let heat = hugged;
     huggedDisplay.innerHTML = hugged ? "HUGGED" : "RELEASED";
+    //村井追記
+    callTrigger.value = hugged ? "HUGGED" : "RELEASED";
+    
     if (temp < TEMP_STANDBY) {
       heat = true;
     } else if (TEMP_MAX < temp) {

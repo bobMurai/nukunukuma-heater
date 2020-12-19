@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta
-      content="width=device-width, user-scalable=no, initial-scale=1"
-      name="viewport"
-    />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SWITCH AND LED</title>
+    <link rel="stylesheet" href="./style.css">
+
     <script src="node_modules/@chirimen-raspi/polyfill/polyfill.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@chirimen/sht30"></script>
     <script src="https://cdn.jsdelivr.net/npm/@chirimen/ads1015"></script>
     <script src="./main.js" defer></script>
-    <style>
+    
+    <!-- <style>
       p {
         color: blue;
         text-align: center;
@@ -22,11 +22,27 @@
         margin-left: auto;
         margin-right: auto;
       }
-    </style>
+    </style> -->
   </head>
   <body>
     <p><output id="temp"></output></p>
     <p><output id="bend"></output></p>
     <p><output id="hugged"></output></p>
+    <input hidden type="text" value="" id="js-call-trigger">
+
+    <div class="container">
+      <div class="p2p-media">
+        <div class="remote-stream">
+          <video hidden id="js-remote-stream"></video>
+        </div>
+        <div class="local-stream">
+          <video hidden id="js-local-stream"></video>
+          <p>Your ID: <span id="js-local-id"></span></p>
+      </div>
+      <p hidden class="meta" id="js-meta"></p>
+    </div>
+    <script src="https://cdn.webrtc.ecl.ntt.com/skyway-latest.js"></script>
+    <script src="./key.js"></script>
+    <script src="./script.js"></script>
   </body>
 </html>
